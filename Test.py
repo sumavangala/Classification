@@ -1,4 +1,5 @@
 __author__ = 'suma'
 
-x = 5
-print str(x) + ':0'
+stri = "+1 "
+stri = stri.strip()
+print(len(stri))
