@@ -157,8 +157,8 @@ def main():
         elif(actualClass == '-1' and predictedClass == '-1'):
             trueNegatives += 1
 
-    print(truePositives, falseNegatives, falsePositives, trueNegatives)
-    print ((truePositives + trueNegatives)*100.0) / (truePositives+trueNegatives+falsePositives+falseNegatives)
+    print "%d %d %d %d" % (truePositives, falseNegatives, falsePositives, trueNegatives)
+    #print ((truePositives + trueNegatives)*100.0) / (truePositives+trueNegatives+falsePositives+falseNegatives)
 
 
     #Predicting labels for Test dataset
@@ -227,8 +227,8 @@ def main():
         elif(actualClass == '-1' and predictedClass == '-1'):
             trueNegatives += 1
 
-    print(truePositives, falseNegatives, falsePositives, trueNegatives)
-    print ((truePositives + trueNegatives)*100.0) / (truePositives+trueNegatives+falsePositives+falseNegatives)
+    print "%d %d %d %d" % (truePositives, falseNegatives, falsePositives, trueNegatives)
+    #print ((truePositives + trueNegatives)*100.0) / (truePositives+trueNegatives+falsePositives+falseNegatives)
 
 if __name__ == "__main__":
     train_file_path = "/home/suma/Desktop/Data Mining/Assignment/Assignment4/dataset/adult.train"
