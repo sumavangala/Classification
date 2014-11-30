@@ -8,7 +8,7 @@ def main():
     totalPositiveClassRecords = 0
     totalNegativeClassRecords = 0
     totalAttributes = 0
-    attributes = [] #1 to totalAttributes
+    attributes = []  #1 to totalAttributes
     actualLabels = {}
     predictedLabels = {}
 
@@ -17,14 +17,14 @@ def main():
     testFile = open(test_file_path, 'r')
     for line in trainFile:
         line = line.strip()
-        if(len(line) > 0):
+        if len(line) > 0:
             record = line.split()
             values = record[len(record)-1].split(':')
             if int(values[0]) > totalAttributes:
                 totalAttributes = int(values[0])
     for line in testFile:
         line = line.strip()
-        if(len(line) > 0):
+        if len(line) > 0:
             record = line.split()
             values = record[len(record)-1].split(':')
             if int(values[0]) > totalAttributes:
@@ -99,7 +99,7 @@ def main():
     index = 0
     for line in trainFile:
         line = line.strip()
-        if(len(line) > 0):
+        if len(line) > 0:
             index = index + 1
             record = line.split()
             record.pop(0)
@@ -158,7 +158,7 @@ def main():
             trueNegatives += 1
 
     print "%d %d %d %d" % (truePositives, falseNegatives, falsePositives, trueNegatives)
-    #print ((truePositives + trueNegatives)*100.0) / (truePositives+trueNegatives+falsePositives+falseNegatives)
+    print ((truePositives + trueNegatives)*100.0) / (truePositives+trueNegatives+falsePositives+falseNegatives)
 
 
     #Predicting labels for Test dataset
@@ -168,7 +168,7 @@ def main():
     predictedLabels = {}
     for line in testFile:
         line = line.strip()
-        if(len(line) > 0):
+        if len(line) > 0:
             index = index + 1
             record = line.split()
             actualLabels[index] = record[0]
@@ -228,7 +228,7 @@ def main():
             trueNegatives += 1
 
     print "%d %d %d %d" % (truePositives, falseNegatives, falsePositives, trueNegatives)
-    #print ((truePositives + trueNegatives)*100.0) / (truePositives+trueNegatives+falsePositives+falseNegatives)
+    print ((truePositives + trueNegatives)*100.0) / (truePositives+trueNegatives+falsePositives+falseNegatives)
 
 if __name__ == "__main__":
     train_file_path = "/home/suma/Desktop/Data Mining/Assignment/Assignment4/dataset/adult.train"
