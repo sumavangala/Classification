@@ -26,8 +26,8 @@
       <file leaf-file-name="NaiveBayes.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NaiveBayes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1274" max-vertical-offset="3615">
-              <caret line="94" column="54" selection-start-line="91" selection-start-column="4" selection-end-line="94" selection-end-column="54" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3615">
+              <caret line="6" column="20" selection-start-line="184" selection-start-column="16" selection-end-line="185" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -36,9 +36,11 @@
       <file leaf-file-name="NBAdaBoost.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/NBAdaBoost.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5088161" vertical-offset="2288" max-vertical-offset="2685">
-              <caret line="166" column="29" selection-start-line="166" selection-start-column="29" selection-end-line="166" selection-end-column="29" />
-              <folding />
+            <state vertical-scroll-proportion="10.919395" vertical-offset="0" max-vertical-offset="5385">
+              <caret line="289" column="39" selection-start-line="289" selection-start-column="39" selection-end-line="289" selection-end-column="39" />
+              <folding>
+                <element signature="e#22#34#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -64,9 +66,9 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/NBAAdaBoost.py" />
-        <option value="$PROJECT_DIR$/NaiveBayes.py" />
         <option value="$PROJECT_DIR$/Test.py" />
         <option value="$PROJECT_DIR$/NBAdaBoost.py" />
+        <option value="$PROJECT_DIR$/NaiveBayes.py" />
       </list>
     </option>
   </component>
@@ -145,7 +147,7 @@
       <console-settings />
     </option>
   </component>
-  <component name="RunManager" selected="Python.NBAdaBoost">
+  <component name="RunManager" selected="Python.NaiveBayes">
     <configuration default="false" name="Test" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -440,17 +442,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/NaiveBayes.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1274" max-vertical-offset="3615">
-          <caret line="94" column="54" selection-start-line="91" selection-start-column="4" selection-end-line="94" selection-end-column="54" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3615">
+          <caret line="6" column="20" selection-start-line="184" selection-start-column="16" selection-end-line="185" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/NBAdaBoost.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5088161" vertical-offset="2288" max-vertical-offset="2685">
-          <caret line="166" column="29" selection-start-line="166" selection-start-column="29" selection-end-line="166" selection-end-column="29" />
-          <folding />
+        <state vertical-scroll-proportion="10.919395" vertical-offset="0" max-vertical-offset="5385">
+          <caret line="289" column="39" selection-start-line="289" selection-start-column="39" selection-end-line="289" selection-end-column="39" />
+          <folding>
+            <element signature="e#22#34#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
