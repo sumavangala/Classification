@@ -3,10 +3,11 @@ __author__ = 'suma'
 
 import numpy
 import math
+import sys
 
 
 def main():
-    k = 5
+    k = 5 #number of weak classifiers
     trainFileContent = {}
     totalAttributes = 0
     totalRecords = 0
@@ -115,8 +116,10 @@ def main():
         actualLabels = {}
         predictedLabels = {}
         index = 0
-        for each in trainFileContent:
-            line = trainFileContent[each].strip()
+        #for each in trainFileContent:
+        for each in sample:
+            line = trainFileContent[each]
+            #line = trainFileContent[each].strip()
             if len(line) > 0:
                 index += 1
                 record = line.split()
@@ -160,6 +163,7 @@ def main():
         #Calculating the weighted error rate
         error = 0
         newWeightSum = 0
+        oldWeightSum = 0
         for key in actualLabels:
             actualClass = actualLabels[key]
             predictedClass = predictedLabels[key]
@@ -167,17 +171,20 @@ def main():
                 error = error + weights[key]
         errorRate[counter] = error
 
-        #Adjusting the weights of a tuple if correctly classified
-        for key in actualLabels:
-            actualClass = actualLabels[key]
-            predictedClass = predictedLabels[key]
-            if (actualClass == '+1' and predictedClass == '+1') or (actualClass == '-1' and predictedClass == '-1'):
-                weights[key] = weights[key] * ((error*1.0)/(1-error))
-            newWeightSum = newWeightSum + weights[key]
+        if error < 0.5:
+            #Adjusting the weights of a tuple if correctly classified
+            for key in actualLabels:
+                actualClass = actualLabels[key]
+                predictedClass = predictedLabels[key]
+                oldWeightSum = oldWeightSum + weights[key]
+                if (actualClass == '+1' and predictedClass == '+1') or (actualClass == '-1' and predictedClass == '-1'):
+                    weights[key] = weights[key] * ((error*1.0)/(1-error))
+                newWeightSum = newWeightSum + weights[key]
 
-        #normalize the weights
-        for key in actualLabels:
-            weights[key] = weights[key] * 1.0/newWeightSum
+            #normalize the weights
+            if(newWeightSum != 0):
+                for key in actualLabels:
+                    weights[key] = weights[key] * float(oldWeightSum)/newWeightSum
 
     #Predict labels for training data and print FP,TP,TN,FN
     index = 0
@@ -231,10 +238,11 @@ def main():
                     else:
                         negativeTotalProb = negativeTotalProb * 0
 
-                if positiveTotalProb > negativeTotalProb:
-                    result = result + math.log((1-errorRate[counter])*1.0/errorRate[counter])
-                else:
-                    result = result - math.log((1-errorRate[counter])*1.0/errorRate[counter])
+                if(errorRate[counter] != 0):
+                    if positiveTotalProb > negativeTotalProb:
+                        result = result + math.log(2, float(1-errorRate[counter])/errorRate[counter])
+                    else:
+                        result = result - math.log(2, float(1-errorRate[counter])/errorRate[counter])
 
             if result > 0:
                 predictedLabels[index] = '+1'
@@ -261,7 +269,6 @@ def main():
             trueNegatives += 1
 
     print "%d %d %d %d" % (truePositives, falseNegatives, falsePositives, trueNegatives)
-    print ((truePositives + trueNegatives)*100.0) / (truePositives+trueNegatives+falsePositives+falseNegatives)
 
     #Predict labels for test data and print FP,TP,TN,FN
     index = 0
@@ -316,10 +323,11 @@ def main():
                     else:
                         negativeTotalProb = negativeTotalProb * 0
 
-                if positiveTotalProb > negativeTotalProb:
-                    result = result + math.log((1-errorRate[counter])*1.0/errorRate[counter])
-                else:
-                    result = result - math.log((1-errorRate[counter])*1.0/errorRate[counter])
+                if(errorRate[counter] != 0):
+                    if positiveTotalProb > negativeTotalProb:
+                        result = result + math.log((1-errorRate[counter])*1.0/errorRate[counter])
+                    else:
+                        result = result - math.log((1-errorRate[counter])*1.0/errorRate[counter])
 
             if result > 0:
                 predictedLabels[index] = '+1'
@@ -346,9 +354,9 @@ def main():
             trueNegatives += 1
 
     print "%d %d %d %d" % (truePositives, falseNegatives, falsePositives, trueNegatives)
-    print ((truePositives + trueNegatives)*100.0) / (truePositives+trueNegatives+falsePositives+falseNegatives)
+
 
 if __name__ == "__main__":
-    train_file_path = "/home/suma/Desktop/Data Mining/Assignment/Assignment4/dataset/led.train"
-    test_file_path = "/home/suma/Desktop/Data Mining/Assignment/Assignment4/dataset/led.test"
+    train_file_path = sys.argv[1]
+    test_file_path = sys.argv[2]
     main()

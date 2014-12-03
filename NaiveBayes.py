@@ -1,6 +1,9 @@
 __author__ = 'suma'
 
 
+import sys
+
+
 def main():
     positiveClassDict = {}
     negativeClassDict = {}
@@ -158,8 +161,6 @@ def main():
             trueNegatives += 1
 
     print "%d %d %d %d" % (truePositives, falseNegatives, falsePositives, trueNegatives)
-    print ((truePositives + trueNegatives)*100.0) / (truePositives+trueNegatives+falsePositives+falseNegatives)
-
 
     #Predicting labels for Test dataset
     testFile = open(test_file_path, 'r')
@@ -228,9 +229,8 @@ def main():
             trueNegatives += 1
 
     print "%d %d %d %d" % (truePositives, falseNegatives, falsePositives, trueNegatives)
-    print ((truePositives + trueNegatives)*100.0) / (truePositives+trueNegatives+falsePositives+falseNegatives)
 
 if __name__ == "__main__":
-    train_file_path = "/home/suma/Desktop/Data Mining/Assignment/Assignment4/dataset/adult.train"
-    test_file_path = "/home/suma/Desktop/Data Mining/Assignment/Assignment4/dataset/adult.test"
+    train_file_path = sys.argv[1]
+    test_file_path = sys.argv[2]
     main()

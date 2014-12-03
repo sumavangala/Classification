@@ -1,13 +1,13 @@
 __author__ = 'suma'
 
 
-#Accuracy, Error Rate, Sensitivity, Specificity, Precision, F-1 Score, Fβ score (β = 0.5 and 2)
+#Accuracy, Error Rate, Sensitivity, Specificity, Precision, F-1 Score, Fbeat score (beta = 0.5 and 2)
 #8 metrics * 2 methods * 4datasets * 2 (training and test)
 #input these numbers
-TP = 0
-FN = 0
-FP = 0
-TN = 0
+TP = 393
+FN = 66
+FP = 178
+TN = 41
 
 Accuracy = (TP+TN)*1.0/(TP+FN+FP+TN)
 ErrorRate = (FP+FN)*1.0/(TP+FN+FP+TN)
@@ -19,4 +19,4 @@ F1Score = (2.0*Precision*Recall)/(Precision+Recall)
 FBeta1 = (1.25*Precision*Recall)/((0.25*Precision)+Recall)
 FBeat2 = (5.0*Precision*Recall)/((4*Precision)+Recall)
 
-print("%f %f %f %f %f %f %f %f %f" % (Accuracy, ErrorRate, Sensitivity, Specificity, Precision, F1Score, FBeta1, FBeat2))
+print("%f %f %f %f %f %f %f %f" % (Accuracy, ErrorRate, Sensitivity, Specificity, Precision, F1Score, FBeta1, FBeat2))
